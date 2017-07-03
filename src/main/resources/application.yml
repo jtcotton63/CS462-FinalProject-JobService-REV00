@@ -18,7 +18,7 @@ spring:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
 urls:
   http: http://
-  self: http://ec2-52-36-117-25.us-west-2.compute.amazonaws.com
+  self: ${urls.http}ec2-52-36-117-25.us-west-2.compute.amazonaws.com
   service:
     helper: ${urls.http}ec2-34-211-205-116.us-west-2.compute.amazonaws.com
     job: ${urls.http}ec2-52-36-117-25.us-west-2.compute.amazonaws.com
