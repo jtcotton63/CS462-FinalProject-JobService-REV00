@@ -1,5 +1,7 @@
 package com.josephee.cs462.job.service;
 
+import com.josephee.cs462.common.dispatch.JobEventsDispatcher;
+import com.josephee.cs462.common.model.event.CreateEvent;
 import com.josephee.cs462.job.domain.Job;
 import com.josephee.cs462.common.model.job.JobModel;
 import com.josephee.cs462.job.repository.JobRepository;
@@ -18,12 +20,15 @@ public class JobService {
 
     @Autowired
     private JobRepository jobRepository;
+    @Autowired
+    private JobEventsDispatcher dispatcher;
 
     public JobModel create(JobModel incoming) {
         incoming.setId(null);
         Job toBeSaved = new Job(incoming);
         Job saved = jobRepository.save(toBeSaved);
         JobModel toBeReturned = saved.toModel();
+        dispatcher.jobCreated(new CreateEvent<>(toBeReturned));
         return toBeReturned;
     }
 
