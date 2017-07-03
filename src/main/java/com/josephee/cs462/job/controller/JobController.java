@@ -1,6 +1,6 @@
 package com.josephee.cs462.job.controller;
 
-import com.josephee.cs462.job.model.JobModel;
+import com.josephee.cs462.common.model.JobModel;
 import com.josephee.cs462.job.service.JobService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

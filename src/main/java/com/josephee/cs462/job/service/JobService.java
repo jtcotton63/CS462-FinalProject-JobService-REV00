@@ -1,7 +1,7 @@
 package com.josephee.cs462.job.service;
 
 import com.josephee.cs462.job.domain.Job;
-import com.josephee.cs462.job.model.JobModel;
+import com.josephee.cs462.common.model.JobModel;
 import com.josephee.cs462.job.repository.JobRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
