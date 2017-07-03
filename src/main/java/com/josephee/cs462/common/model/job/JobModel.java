@@ -1,7 +1,10 @@
-package com.josephee.cs462.common.model;
+package com.josephee.cs462.common.model.job;
+
+import lombok.ToString;
 
 import java.time.ZonedDateTime;
 
+@ToString
 public class JobModel {
 
     private Long id;

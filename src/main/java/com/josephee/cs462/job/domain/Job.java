@@ -1,6 +1,6 @@
 package com.josephee.cs462.job.domain;
 
-import com.josephee.cs462.common.model.JobModel;
+import com.josephee.cs462.common.model.job.JobModel;
 
 import javax.persistence.*;
 import java.time.ZonedDateTime;
