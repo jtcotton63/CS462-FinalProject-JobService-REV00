@@ -8,5 +8,5 @@ CREATE TABLE jobs.job (
 	rendevous_time TIMESTAMP NOT NULL,
 	accepted_by BIGINT(20),
 	completed BOOLEAN NOT NULL,
-	CONSTRAINT jobs_job_accepted_by_to_helpers_helper_id FOREIGN KEY (accepted_by) REFERENCES helpers.helper(id)
+	CONSTRAINT jobs_job_accepted_by_to_users_user_id FOREIGN KEY (accepted_by) REFERENCES users.user(id)
 );
