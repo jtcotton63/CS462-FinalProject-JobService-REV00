@@ -15,8 +15,6 @@ public class Job {
     private String description;
     @Column(columnDefinition = "TIMESTAMP")
     private ZonedDateTime jobTime;
-    @Column(columnDefinition = "TIMESTAMP")
-    private ZonedDateTime rendevousTime;
     private Long acceptedBy;
     private boolean completed;
 
@@ -24,12 +22,11 @@ public class Job {
         this.completed = false;
     }
 
-    public Job(Long id, String address, String description, ZonedDateTime jobTime, ZonedDateTime rendevousTime, Long acceptedBy, boolean completed) {
+    public Job(Long id, String address, String description, ZonedDateTime jobTime, Long acceptedBy, boolean completed) {
         this.id = id;
         this.address = address;
         this.description = description;
         this.jobTime = jobTime;
-        this.rendevousTime = rendevousTime;
         this.acceptedBy = acceptedBy;
         this.completed = completed;
     }
@@ -46,9 +43,6 @@ public class Job {
 
         if(model.getJobTime() != null)
             this.jobTime = model.getJobTime();
-
-        if(model.getRendevousTime() != null)
-            this.rendevousTime = model.getRendevousTime();
 
         if(model.getAcceptedBy() != null && model.getAcceptedBy() > 0)
             this.acceptedBy = model.getAcceptedBy();
@@ -88,14 +82,6 @@ public class Job {
         this.jobTime = jobTime;
     }
 
-    public ZonedDateTime getRendevousTime() {
-        return rendevousTime;
-    }
-
-    public void setRendevousTime(ZonedDateTime rendevousTime) {
-        this.rendevousTime = rendevousTime;
-    }
-
     public Long getAcceptedBy() {
         return acceptedBy;
     }
@@ -126,9 +112,6 @@ public class Job {
 
         if(this.getJobTime() != null)
             model.setJobTime(this.getJobTime());
-
-        if(this.getRendevousTime() != null)
-            model.setRendevousTime(this.getRendevousTime());
 
         if(this.getAcceptedBy() != null && this.getAcceptedBy() > 0)
             model.setAcceptedBy(this.getAcceptedBy());

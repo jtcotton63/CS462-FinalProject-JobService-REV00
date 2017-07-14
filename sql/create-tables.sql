@@ -5,7 +5,6 @@ CREATE TABLE jobs.job (
 	address VARCHAR(255) NOT NULL,
 	description VARCHAR(2000) NOT NULL,
 	job_time TIMESTAMP NOT NULL,
-	rendevous_time TIMESTAMP NOT NULL,
 	accepted_by BIGINT(20),
 	completed BOOLEAN NOT NULL,
 	CONSTRAINT jobs_job_accepted_by_to_users_user_id FOREIGN KEY (accepted_by) REFERENCES users.user(id)
