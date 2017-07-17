@@ -5,6 +5,8 @@ import com.josephee.cs462.job.service.JobService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -18,6 +20,12 @@ public class JobController {
     public Long create(@RequestBody JobModel model) {
         JobModel saved = jobService.create(model);
         return saved.getId();
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        jobService.delete(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)

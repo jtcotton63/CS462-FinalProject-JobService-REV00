@@ -48,6 +48,11 @@ public class JobService {
         return toBeReturned;
     }
 
+    public void delete(Long id) {
+        jobRepository.delete(id);
+        // TODO: emit event
+    }
+
     public Page<JobModel> getJobs(Pageable pageable) {
         Page<Job> jobsPage = jobRepository.findAll(pageable);
         Page<JobModel> modelsPage = toModelsPage(jobsPage);
